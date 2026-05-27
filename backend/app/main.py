@@ -1,8 +1,33 @@
+import asyncio
+import logging
+
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1.router import api_router
 from app.core.config import settings
+
+logger = logging.getLogger(__name__)
+
+
+async def _run_seed():
+    """Запускаем seed в фоне — не блокирует старт uvicorn."""
+    try:
+        # Импортируем здесь чтобы не тянуть при каждом запросе
+        from seed import seed  # noqa: PLC0415
+        await seed()
+    except Exception as exc:
+        logger.warning("Seed пропущен: %s", exc)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Запускаем seed в фоновой задаче — uvicorn уже принимает запросы
+    asyncio.create_task(_run_seed())
+    yield
+
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -11,6 +36,7 @@ app = FastAPI(
     docs_url="/docs",
     redoc_url="/redoc",
     openapi_url="/openapi.json",
+    lifespan=lifespan,
 )
 
 app.add_middleware(
