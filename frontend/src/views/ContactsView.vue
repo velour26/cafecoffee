@@ -60,28 +60,21 @@
               <p class="text-sm mt-2" style="color:#444">Центральный район</p>
             </div>
 
-            <div class="relative overflow-hidden flex items-center justify-center" style="background:#161616;border:1px solid #1e1e1e;min-height:340px">
-              <svg class="absolute inset-0 w-full h-full" style="opacity:0.06">
-                <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#fff" stroke-width="0.5"/></pattern></defs>
-                <rect width="100%" height="100%" fill="url(#grid)"/>
-              </svg>
-              <div class="relative flex flex-col items-center gap-3 z-10">
-                <div class="w-14 h-14 flex items-center justify-center" style="background:#c1ce56">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round">
-                    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-                  </svg>
-                </div>
-                <div class="text-center">
-                  <p class="text-sm font-black" style="color:#fff">ул. Кофейная, 42</p>
-                  <p class="text-xs mt-1" style="color:#555">«Кофеёчек»</p>
-                </div>
-              </div>
-              <div class="absolute inset-0 pointer-events-none">
-                <div class="absolute" style="background:#1e1e1e;width:100%;height:2px;top:38%"></div>
-                <div class="absolute" style="background:#1e1e1e;width:2px;height:100%;left:45%"></div>
-                <div class="absolute" style="background:#1a1a1a;width:100%;height:1px;top:62%"></div>
-                <div class="absolute" style="background:#1a1a1a;width:1px;height:100%;left:72%"></div>
-              </div>
+            <div class="relative overflow-hidden" style="border:1px solid #1e1e1e;min-height:340px;height:340px">
+              <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=37.5976%2C55.7458%2C37.6376%2C55.7658&amp;layer=mapnik&amp;marker=55.7558%2C37.6176"
+                style="width:100%;height:100%;border:0;display:block;filter:invert(0.9) hue-rotate(180deg) saturate(0.7) brightness(0.85)"
+                allowfullscreen
+                loading="lazy"
+                title="Карта кафе Кофеёчек"
+              ></iframe>
+              <a
+                href="https://www.openstreetmap.org/?mlat=55.7558&mlon=37.6176#map=16/55.7558/37.6176"
+                target="_blank"
+                rel="noopener"
+                class="absolute bottom-2 right-2 text-xs font-bold px-2 py-1 z-10"
+                style="background:rgba(0,0,0,0.7);color:#c1ce56;backdrop-filter:blur(4px)"
+              >Открыть карту ↗</a>
             </div>
 
             <div class="grid grid-cols-2 gap-3">
@@ -157,8 +150,13 @@
                 <p class="text-sm font-bold" style="color:#c1ce56">Сообщение отправлено! Мы ответим в течение дня.</p>
               </div>
 
+              <div v-if="sendError" class="flex items-center gap-3 px-4 py-3" style="background:#1e0f0f;border:1px solid #3a1a1a">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p class="text-sm font-bold" style="color:#e53e3e">{{ sendError }}</p>
+              </div>
+
               <button
-                v-else
+                v-if="!sent"
                 type="submit"
                 :disabled="sending"
                 class="flex items-center justify-center gap-3 py-4 text-xs font-bold uppercase tracking-[0.25em] transition-opacity"
@@ -208,17 +206,30 @@
 
 <script setup>
 import { ref } from 'vue'
+import { contactApi } from '@/api/contact'
 
 const form = ref({ name: '', email: '', topic: '', message: '' })
 const sending = ref(false)
 const sent = ref(false)
+const sendError = ref('')
 
 async function handleSubmit() {
   sending.value = true
-  await new Promise(r => setTimeout(r, 900))
-  sending.value = false
-  sent.value = true
-  form.value = { name: '', email: '', topic: '', message: '' }
+  sendError.value = ''
+  try {
+    await contactApi.send({
+      name: form.value.name,
+      email: form.value.email,
+      topic: form.value.topic || null,
+      message: form.value.message,
+    })
+    sent.value = true
+    form.value = { name: '', email: '', topic: '', message: '' }
+  } catch (err) {
+    sendError.value = err.response?.data?.detail || 'Ошибка при отправке. Попробуйте позже.'
+  } finally {
+    sending.value = false
+  }
 }
 
 const cards = [

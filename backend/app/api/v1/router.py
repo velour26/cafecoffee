@@ -5,6 +5,7 @@ from app.api.v1.endpoints import (
     auth,
     cart,
     categories,
+    contact_messages,
     favorites,
     menu_items,
     orders,
@@ -21,3 +22,4 @@ api_router.include_router(orders.router, prefix="/orders", tags=["Orders"])
 api_router.include_router(reviews.router, prefix="/reviews", tags=["Reviews"])
 api_router.include_router(favorites.router, prefix="/favorites", tags=["Favorites"])
 api_router.include_router(ai_advisor.router, prefix="/ai", tags=["AI"])
+api_router.include_router(contact_messages.router, prefix="/contact-messages", tags=["Contact"])

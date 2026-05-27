@@ -253,6 +253,7 @@ const navLinks = [
   { to: '/categories', label: 'Категории' },
   { to: '/reviews',    label: 'Отзывы'    },
   { to: '/about',      label: 'О нас'     },
+  { to: '/contacts',   label: 'Контакты'  },
 ]
 
 function isActive(path) {

@@ -7,6 +7,7 @@ from app.models.order import Order, OrderStatus
 from app.models.order_item import OrderItem
 from app.models.review import Review
 from app.models.favorite import Favorite
+from app.models.contact_message import ContactMessage
 
 __all__ = [
     "Role",
@@ -19,4 +20,5 @@ __all__ = [
     "OrderItem",
     "Review",
     "Favorite",
+    "ContactMessage",
 ]

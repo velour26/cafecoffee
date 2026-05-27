@@ -42,6 +42,7 @@ const router = createRouter({
         { path: 'menu', name: 'admin-menu', component: () => import('@/views/admin/AdminMenuItemsView.vue') },
         { path: 'orders', name: 'admin-orders', component: () => import('@/views/admin/AdminOrdersView.vue') },
         { path: 'reviews', name: 'admin-reviews', component: () => import('@/views/admin/AdminReviewsView.vue') },
+        { path: 'contacts', name: 'admin-contacts', component: () => import('@/views/admin/AdminContactMessagesView.vue') },
       ],
     },
     { path: '/:pathMatch(.*)*', redirect: '/' },
