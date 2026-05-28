@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div style="background:#fff;min-height:100vh">
 
     <div style="background:#fff;border-bottom:1px solid #f0f0f0">
@@ -109,7 +109,7 @@
                   <button
                     @click="successMsg = false"
                     class="mt-4 text-xs font-bold uppercase tracking-widest px-5 py-2 transition-opacity hover:opacity-85"
-                    style="background:#0a0a0a;color:#fff"
+                    style="background:#2a2420;color:#f7f3ee"
                   >Написать ещё</button>
                 </div>
 

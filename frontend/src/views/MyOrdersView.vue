@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <div class="mb-10" style="border-bottom:1px solid #f0f0f0;padding-bottom:2rem">
       <p class="text-xs font-bold uppercase tracking-[0.3em] mb-2" style="color:#c1ce56">Аккаунт</p>

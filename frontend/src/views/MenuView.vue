@@ -16,6 +16,7 @@
             <MenuFilterPanel
               :categories="categories"
               :initial-category="initialCategory"
+              :initial-search="initialSearch"
               @filter="handleFilter"
             />
           </div>
@@ -105,7 +106,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { menuApi } from '@/api/menu'
 import { categoriesApi } from '@/api/categories'
@@ -127,6 +128,14 @@ const toastMsg = ref('')
 let toastTimer = null
 
 const initialCategory = $route.query.category ? Number($route.query.category) : null
+const initialSearch   = $route.query.search   ? String($route.query.search)   : ''
+
+// Реагируем на изменение ?search= в URL (навигация из строки поиска)
+watch(() => $route.query.search, (newSearch) => {
+  if (newSearch !== undefined) {
+    fetchItems({ search: newSearch || undefined })
+  }
+})
 
 const activeFilters = computed(() => Object.keys(currentFilters.value).length > 0)
 const hasMore = computed(() => items.value.length < total.value)

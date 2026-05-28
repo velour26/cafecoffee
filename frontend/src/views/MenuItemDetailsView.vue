@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div style="background:#fff;min-height:100vh">
 
     <div v-if="loading">
@@ -78,7 +78,7 @@
               class="absolute inset-0 flex items-center justify-center"
               style="background:rgba(0,0,0,.55)"
             >
-              <span class="text-xs font-bold uppercase tracking-widest px-4 py-2" style="border:1px solid #fff;color:#fff">
+              <span class="text-xs font-bold uppercase tracking-widest px-4 py-2" style="border:1px solid #2a2420;color:#2a2420">
                 Временно недоступно
               </span>
             </div>
@@ -164,7 +164,7 @@
                 :disabled="addingToCart"
                 class="w-full py-4 text-xs font-bold uppercase tracking-widest transition-all duration-200"
                 :style="addedToCart
-                  ? 'background:#0a0a0a;color:#fff'
+                  ? 'background:#2a2420;color:#f7f3ee'
                   : 'background:#c1ce56;color:#0a0a0a'"
               >
                 <span v-if="addingToCart">—</span>

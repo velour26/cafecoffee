@@ -1,10 +1,10 @@
-<template>
+﻿<template>
   <div style="background:#fff">
 
-    <section style="background:#0a0a0a">
+    <section style="background:#f7f3ee">
       <div class="max-w-4xl mx-auto px-6 py-20">
         <p class="text-xs font-bold uppercase tracking-[0.4em] mb-5" style="color:#c1ce56">Документы</p>
-        <h1 class="font-black leading-tight mb-5" style="font-size:clamp(2rem,5vw,3.5rem);color:#fff">
+        <h1 class="font-black leading-tight mb-5" style="font-size:clamp(2rem,5vw,3.5rem);color:#1a1714">
           Политика<br>конфиденциальности
         </h1>
         <p class="text-sm" style="color:#555">Последнее обновление: 1 января 2026 года</p>
@@ -71,7 +71,7 @@
         <RouterLink
           to="/contacts"
           class="flex items-center gap-3 px-8 py-3 text-xs font-bold uppercase tracking-widest shrink-0 transition-opacity hover:opacity-80"
-          style="background:#0a0a0a;color:#fff"
+          style="background:#2a2420;color:#f7f3ee"
         >
           Написать нам
         </RouterLink>

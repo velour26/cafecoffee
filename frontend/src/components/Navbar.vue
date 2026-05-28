@@ -23,7 +23,12 @@
         </RouterLink>
       </nav>
 
-      <div class="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto">
+      <!-- Поиск (десктоп) -->
+      <div class="hidden md:flex items-center shrink-0">
+        <NavSearch />
+      </div>
+
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0 ml-3">
 
         <RouterLink
           v-if="authStore.isAuthenticated"
@@ -150,6 +155,12 @@
 
         <div class="relative h-full overflow-y-auto" style="background:#fff;max-width:320px;width:100%">
 
+          <!-- Поиск (мобильный) -->
+          <div class="px-6 py-4" style="border-bottom:1px solid #f0f0f0">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] mb-3" style="color:#c1ce56">Поиск</p>
+            <NavSearch ref="mobileSearchRef" class="block" style="width:100%" />
+          </div>
+
           <div style="border-bottom:1px solid #f0f0f0">
             <p class="text-xs font-bold uppercase tracking-[0.3em] px-6 pt-5 pb-3" style="color:#c1ce56">Навигация</p>
             <RouterLink
@@ -238,6 +249,7 @@ import { RouterLink, useRoute, useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useCartStore } from '@/stores/cart'
 import AppLogo from '@/components/AppLogo.vue'
+import NavSearch from '@/components/NavSearch.vue'
 
 const authStore = useAuthStore()
 const cartStore = useCartStore()

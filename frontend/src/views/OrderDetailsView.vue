@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div>
     <RouterLink
       to="/account/orders"
@@ -115,7 +115,7 @@
                 :style="isStepDone(step.key) ? 'background:#c1ce56' : isStepCancelled(step.key) ? 'background:#fc8181' : 'background:#f0f0f0'"
               >
                 <svg v-if="isStepDone(step.key)" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-                <svg v-else-if="isStepCancelled(step.key)" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                <svg v-else-if="isStepCancelled(step.key)" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#2a2420" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 <div v-else class="w-1.5 h-1.5" style="background:#ccc"></div>
               </div>
               <span

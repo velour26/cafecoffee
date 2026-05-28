@@ -1,16 +1,16 @@
-<template>
+﻿<template>
   <div>
 
-    <section class="relative overflow-hidden" style="background:#0a0a0a">
+    <section class="relative overflow-hidden" style="background:#f7f3ee">
       <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-        <svg style="position:absolute;top:10%;left:5%;width:22px;opacity:.18;transform:rotate(25deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#fff"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
-        <svg style="position:absolute;top:60%;left:88%;width:26px;opacity:.15;transform:rotate(-35deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#fff"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
+        <svg style="position:absolute;top:10%;left:5%;width:22px;opacity:.18;transform:rotate(25deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#c1ce56"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
+        <svg style="position:absolute;top:60%;left:88%;width:26px;opacity:.15;transform:rotate(-35deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#c1ce56"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
         <svg style="position:absolute;top:35%;left:60%;width:18px;opacity:.4;transform:rotate(15deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#c1ce56"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
         <svg style="position:absolute;top:75%;left:25%;width:20px;opacity:.35;transform:rotate(-50deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#c1ce56"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
       </div>
       <div class="relative z-10 max-w-7xl mx-auto px-6 py-24">
         <p class="text-xs font-bold uppercase tracking-[0.4em] mb-6" style="color:#c1ce56">Кофеёчек</p>
-        <h1 class="font-black leading-[0.92] mb-6" style="font-size:clamp(3rem,8vw,6rem);color:#fff">
+        <h1 class="font-black leading-[0.92] mb-6" style="font-size:clamp(3rem,8vw,6rem);color:#1a1714">
           Контакты
         </h1>
         <p class="text-base" style="color:#555;max-width:480px">
@@ -18,27 +18,27 @@
           ответим на любой вопрос.
         </p>
       </div>
-      <div class="absolute bottom-0 inset-x-0 h-12 pointer-events-none" style="background:linear-gradient(to top,#0a0a0a,transparent)"></div>
+      <div class="absolute bottom-0 inset-x-0 h-12 pointer-events-none" style="background:linear-gradient(to top,#f7f3ee,transparent)"></div>
     </section>
 
 
-    <section style="background:#0a0a0a;border-top:1px solid #1a1a1a">
+    <section style="background:#f7f3ee;border-top:1px solid #e0d9d2">
       <div class="max-w-7xl mx-auto px-6 py-20">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px" style="background:#1e1e1e">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px" style="background:#dbd5ce">
 
           <div v-for="card in cards" :key="card.title"
             class="flex flex-col gap-5 p-8 transition-colors duration-200"
-            style="background:#0a0a0a"
-            @mouseenter="e => e.currentTarget.style.background='#111'"
-            @mouseleave="e => e.currentTarget.style.background='#0a0a0a'"
+            style="background:#f7f3ee"
+            @mouseenter="e => e.currentTarget.style.background='#efe9e3'"
+            @mouseleave="e => e.currentTarget.style.background='#f7f3ee'"
           >
-            <div class="w-11 h-11 flex items-center justify-center" style="background:#161616">
+            <div class="w-11 h-11 flex items-center justify-center" style="background:#e9e3dc">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c1ce56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" v-html="card.icon"></svg>
             </div>
             <div>
               <p class="text-xs font-bold uppercase tracking-[0.2em] mb-3" style="color:#c1ce56">{{ card.title }}</p>
               <div class="flex flex-col gap-1.5">
-                <p v-for="line in card.lines" :key="line" class="text-sm font-bold" style="color:#fff">{{ line }}</p>
+                <p v-for="line in card.lines" :key="line" class="text-sm font-bold" style="color:#1a1714">{{ line }}</p>
               </div>
               <p v-if="card.note" class="text-xs mt-3" style="color:#444">{{ card.note }}</p>
             </div>
@@ -49,27 +49,27 @@
     </section>
 
 
-    <section style="background:#0f0f0f;border-top:1px solid #1a1a1a">
+    <section style="background:#f3ede7;border-top:1px solid #e0d9d2">
       <div class="max-w-7xl mx-auto px-6 py-20">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
           <div class="flex flex-col gap-6">
             <div>
               <p class="text-xs font-bold uppercase tracking-[0.3em] mb-3" style="color:#c1ce56">Как добраться</p>
-              <h2 class="font-black text-2xl" style="color:#fff">ул. Кофейная, 42</h2>
+              <h2 class="font-black text-2xl" style="color:#1a1714">ул. Кофейная, 42</h2>
               <p class="text-sm mt-2" style="color:#444">Центральный район</p>
             </div>
 
-            <div class="relative overflow-hidden" style="border:1px solid #1e1e1e;min-height:340px;height:340px">
+            <div class="relative overflow-hidden" style="border:1px solid #ddd7d0;min-height:340px;height:340px">
               <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=37.5976%2C55.7458%2C37.6376%2C55.7658&amp;layer=mapnik&amp;marker=55.7558%2C37.6176"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=36.1738%2C51.7204%2C36.2138%2C51.7404&amp;layer=mapnik&amp;marker=51.7304%2C36.1938"
                 style="width:100%;height:100%;border:0;display:block;filter:invert(0.9) hue-rotate(180deg) saturate(0.7) brightness(0.85)"
                 allowfullscreen
                 loading="lazy"
-                title="Карта кафе Кофеёчек"
+                title="Карта кафе Кофеёчек — Курск"
               ></iframe>
               <a
-                href="https://www.openstreetmap.org/?mlat=55.7558&mlon=37.6176#map=16/55.7558/37.6176"
+                href="https://www.openstreetmap.org/?mlat=51.7304&mlon=36.1938#map=16/51.7304/36.1938"
                 target="_blank"
                 rel="noopener"
                 class="absolute bottom-2 right-2 text-xs font-bold px-2 py-1 z-10"
@@ -78,10 +78,10 @@
             </div>
 
             <div class="grid grid-cols-2 gap-3">
-              <div class="flex items-center gap-3 px-4 py-3" style="background:#161616">
+              <div class="flex items-center gap-3 px-4 py-3" style="background:#e9e3dc">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c1ce56" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M1 3h1l3.5 9h11L20 7H6"/></svg>
                 <div>
-                  <p class="text-xs font-bold" style="color:#fff">Парковка</p>
+                  <p class="text-xs font-bold" style="color:#1a1714">Парковка</p>
                   <p class="text-xs" style="color:#555">Рядом с домом</p>
                 </div>
               </div>
@@ -90,7 +90,7 @@
 
           <div>
             <p class="text-xs font-bold uppercase tracking-[0.3em] mb-3" style="color:#c1ce56">Напишите нам</p>
-            <h2 class="font-black text-2xl mb-8" style="color:#fff">Есть вопрос?</h2>
+            <h2 class="font-black text-2xl mb-8" style="color:#1a1714">Есть вопрос?</h2>
 
             <form @submit.prevent="handleSubmit" class="flex flex-col gap-5">
               <div class="grid grid-cols-2 gap-4">
@@ -100,7 +100,7 @@
                     v-model="form.name" type="text" required
                     placeholder="Ваше имя"
                     class="w-full px-4 py-3 text-sm outline-none transition-all"
-                    style="background:#161616;border:1px solid #222;color:#fff"
+                    style="background:#e9e3dc;border:1px solid #d8d2cb;color:#1a1714"
                     @focus="e => e.target.style.borderColor='#c1ce56'"
                     @blur="e => e.target.style.borderColor='#222'"
                   />
@@ -111,7 +111,7 @@
                     v-model="form.email" type="email" required
                     placeholder="your@email.com"
                     class="w-full px-4 py-3 text-sm outline-none transition-all"
-                    style="background:#161616;border:1px solid #222;color:#fff"
+                    style="background:#e9e3dc;border:1px solid #d8d2cb;color:#1a1714"
                     @focus="e => e.target.style.borderColor='#c1ce56'"
                     @blur="e => e.target.style.borderColor='#222'"
                   />
@@ -122,7 +122,7 @@
                 <select
                   v-model="form.topic"
                   class="w-full px-4 py-3 text-sm outline-none transition-all"
-                  style="background:#161616;border:1px solid #222;color:#fff"
+                  style="background:#e9e3dc;border:1px solid #d8d2cb;color:#1a1714"
                   @focus="e => e.target.style.borderColor='#c1ce56'"
                   @blur="e => e.target.style.borderColor='#222'"
                 >
@@ -139,7 +139,7 @@
                   v-model="form.message" rows="5" required
                   placeholder="Расскажите подробнее..."
                   class="w-full px-4 py-3 text-sm outline-none transition-all resize-none"
-                  style="background:#161616;border:1px solid #222;color:#fff"
+                  style="background:#e9e3dc;border:1px solid #d8d2cb;color:#1a1714"
                   @focus="e => e.target.style.borderColor='#c1ce56'"
                   @blur="e => e.target.style.borderColor='#222'"
                 ></textarea>
@@ -174,12 +174,12 @@
     </section>
 
 
-    <section style="background:#0a0a0a;border-top:1px solid #1a1a1a">
+    <section style="background:#f7f3ee;border-top:1px solid #e0d9d2">
       <div class="max-w-7xl mx-auto px-6 py-20">
         <div class="flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <p class="text-xs font-bold uppercase tracking-[0.3em] mb-3" style="color:#c1ce56">Мы в соцсетях</p>
-            <h2 class="font-black text-2xl" style="color:#fff">Следите за нами</h2>
+            <h2 class="font-black text-2xl" style="color:#1a1714">Следите за нами</h2>
             <p class="text-sm mt-2" style="color:#444">Новинки, акции и закулисье кофейни</p>
           </div>
           <div class="flex items-center gap-4">
@@ -189,7 +189,7 @@
               href="#"
               :title="soc.label"
               class="flex items-center gap-3 px-5 py-3 text-sm font-bold transition-all duration-200"
-              style="border:1px solid #222;color:#555"
+              style="border:1px solid #d8d2cb;color:#555"
               @mouseenter="e => { e.currentTarget.style.borderColor='#c1ce56'; e.currentTarget.style.color='#c1ce56' }"
               @mouseleave="e => { e.currentTarget.style.borderColor='#222'; e.currentTarget.style.color='#555' }"
             >

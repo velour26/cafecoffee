@@ -1,33 +1,33 @@
-<template>
-  <div class="flex" style="background:#0a0a0a;min-height:calc(100vh - 65px)">
+﻿<template>
+  <div class="flex" style="background:#f7f3ee;min-height:calc(100vh - 65px)">
 
-    <div class="hidden lg:flex flex-col justify-between flex-1 px-16 py-16 relative overflow-hidden" style="border-right:1px solid #1a1a1a">
+    <div class="hidden lg:flex flex-col justify-between flex-1 px-16 py-16 relative overflow-hidden" style="border-right:1px solid #e0d9d2">
 
       <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-        <svg style="position:absolute;top:10%;left:12%;width:20px;opacity:.2;transform:rotate(-15deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#fff"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
-        <svg style="position:absolute;top:25%;left:72%;width:18px;opacity:.15;transform:rotate(45deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#fff"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
+        <svg style="position:absolute;top:10%;left:12%;width:20px;opacity:.2;transform:rotate(-15deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#c1ce56"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
+        <svg style="position:absolute;top:25%;left:72%;width:18px;opacity:.15;transform:rotate(45deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#c1ce56"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
         <svg style="position:absolute;top:50%;left:10%;width:24px;opacity:.35;transform:rotate(-40deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#c1ce56"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
         <svg style="position:absolute;top:70%;left:65%;width:20px;opacity:.3;transform:rotate(25deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#c1ce56"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
-        <svg style="position:absolute;top:85%;left:25%;width:16px;opacity:.18;transform:rotate(-60deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#fff"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
+        <svg style="position:absolute;top:85%;left:25%;width:16px;opacity:.18;transform:rotate(-60deg)" viewBox="0 0 40 22" fill="none"><ellipse cx="20" cy="11" rx="19" ry="10" fill="#c1ce56"/><path d="M20 2 Q28 11 20 20 Q12 11 20 2Z" fill="#0a0a0a"/></svg>
       </div>
 
       <div class="relative z-10">
         <RouterLink to="/" class="inline-block mb-12">
-          <AppLogo :dark="true" :size="28" font-size="0.9rem" />
+          <AppLogo :dark="false" :size="28" font-size="0.9rem" />
         </RouterLink>
         <p class="text-xs font-bold uppercase tracking-[0.3em] mb-5" style="color:#c1ce56">Добро пожаловать</p>
-        <h2 class="font-black leading-[0.92]" style="font-size:clamp(2.5rem,4vw,3.5rem);color:#fff">
+        <h2 class="font-black leading-[0.92]" style="font-size:clamp(2.5rem,4vw,3.5rem);color:#1a1714">
           Начните<br>свой<br>путь.
         </h2>
       </div>
 
       <div class="relative z-10 flex flex-col gap-5">
         <div v-for="perk in perks" :key="perk.text" class="flex items-start gap-4">
-          <div class="w-8 h-8 shrink-0 flex items-center justify-center" style="background:#1a1a1a;border:1px solid #2a2a2a">
+          <div class="w-8 h-8 shrink-0 flex items-center justify-center" style="background:#e2dcd5;border:1px solid #d5cfc8">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c1ce56" stroke-width="2" stroke-linecap="round" v-html="perk.icon"></svg>
           </div>
           <div>
-            <p class="text-sm font-bold mb-0.5" style="color:#fff">{{ perk.title }}</p>
+            <p class="text-sm font-bold mb-0.5" style="color:#1a1714">{{ perk.title }}</p>
             <p class="text-xs" style="color:#444">{{ perk.text }}</p>
           </div>
         </div>
@@ -44,11 +44,11 @@
     <div class="flex-1 lg:max-w-md flex flex-col justify-center px-8 sm:px-12 lg:px-16 py-16">
 
       <RouterLink to="/" class="lg:hidden mb-10">
-        <AppLogo :dark="true" :size="26" font-size="0.85rem" />
+        <AppLogo :dark="false" :size="26" font-size="0.85rem" />
       </RouterLink>
 
       <p class="text-xs font-bold uppercase tracking-[0.3em] mb-4" style="color:#c1ce56">Аккаунт</p>
-      <h1 class="font-black mb-10" style="font-size:2rem;color:#fff;line-height:1">Регистрация</h1>
+      <h1 class="font-black mb-10" style="font-size:2rem;color:#1a1714;line-height:1">Регистрация</h1>
 
       <div v-if="success" class="flex flex-col gap-5">
         <div class="flex items-center gap-4 px-5 py-4" style="background:#0f1a00;border:1px solid #2a3a00">
@@ -78,7 +78,7 @@
             autocomplete="name"
             required
             class="w-full px-4 py-3.5 text-sm outline-none transition-all"
-            style="background:#111;border:1px solid #222;color:#fff"
+            style="background:#efe9e3;border:1px solid #d8d2cb;color:#1a1714"
             @focus="e => e.target.style.borderColor='#c1ce56'"
             @blur="e => e.target.style.borderColor='#222'"
           />
@@ -93,7 +93,7 @@
             autocomplete="email"
             required
             class="w-full px-4 py-3.5 text-sm outline-none transition-all"
-            style="background:#111;border:1px solid #222;color:#fff"
+            style="background:#efe9e3;border:1px solid #d8d2cb;color:#1a1714"
             @focus="e => e.target.style.borderColor='#c1ce56'"
             @blur="e => e.target.style.borderColor='#222'"
           />
@@ -110,7 +110,7 @@
             placeholder="+7 (999) 000-00-00"
             autocomplete="tel"
             class="w-full px-4 py-3.5 text-sm outline-none transition-all"
-            style="background:#111;border:1px solid #222;color:#fff"
+            style="background:#efe9e3;border:1px solid #d8d2cb;color:#1a1714"
             @focus="e => e.target.style.borderColor='#c1ce56'"
             @blur="e => e.target.style.borderColor='#222'"
           />
@@ -127,7 +127,7 @@
               required
               minlength="6"
               class="w-full px-4 py-3.5 pr-12 text-sm outline-none transition-all"
-              style="background:#111;border:1px solid #222;color:#fff"
+              style="background:#efe9e3;border:1px solid #d8d2cb;color:#1a1714"
               @focus="e => e.target.style.borderColor='#c1ce56'"
               @blur="e => e.target.style.borderColor='#222'"
             />
@@ -155,7 +155,7 @@
               autocomplete="new-password"
               required
               class="w-full px-4 py-3.5 pr-12 text-sm outline-none transition-all"
-              :style="`background:#111;border:1px solid ${passwordMismatch ? '#3a1515' : '#222'};color:#fff`"
+              :style="`background:#efe9e3;border:1px solid ${passwordMismatch ? '#3a1515' : '#222'};color:#1a1714`"
               @focus="e => e.target.style.borderColor = passwordMismatch ? '#3a1515' : '#c1ce56'"
               @blur="e => e.target.style.borderColor = passwordMismatch ? '#3a1515' : '#222'"
             />
@@ -192,9 +192,9 @@
       </form>
 
       <div class="flex items-center gap-4 my-8">
-        <div class="flex-1 h-px" style="background:#1e1e1e"></div>
+        <div class="flex-1 h-px" style="background:#dbd5ce"></div>
         <span class="text-xs" style="color:#333">или</span>
-        <div class="flex-1 h-px" style="background:#1e1e1e"></div>
+        <div class="flex-1 h-px" style="background:#dbd5ce"></div>
       </div>
 
       <p class="text-sm text-center" style="color:#444">
@@ -202,9 +202,9 @@
         <RouterLink
           to="/login"
           class="font-bold ml-1 transition-colors"
-          style="color:#fff"
+          style="color:#1a1714"
           @mouseenter="e => e.currentTarget.style.color='#c1ce56'"
-          @mouseleave="e => e.currentTarget.style.color='#fff'"
+          @mouseleave="e => e.currentTarget.style.color='#2a2420'"
         >Войти</RouterLink>
       </p>
 

@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div style="background:#fff;min-height:100vh">
 
     <div style="background:#fff;border-bottom:1px solid #f0f0f0">
@@ -102,14 +102,14 @@
                   @click="deliveryType = 'pickup'"
                   class="flex-1 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-200"
                   :style="deliveryType === 'pickup'
-                    ? 'background:#0a0a0a;color:#fff'
+                    ? 'background:#2a2420;color:#f7f3ee'
                     : 'background:#fff;color:#aaa;border:1px solid #e8e8e8'"
                 >Самовывоз</button>
                 <button
                   @click="deliveryType = 'delivery'"
                   class="flex-1 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-200"
                   :style="deliveryType === 'delivery'
-                    ? 'background:#0a0a0a;color:#fff'
+                    ? 'background:#2a2420;color:#f7f3ee'
                     : 'background:#fff;color:#aaa;border:1px solid #e8e8e8'"
                 >Доставка</button>
               </div>

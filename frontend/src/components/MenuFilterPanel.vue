@@ -93,12 +93,13 @@
 import { ref } from 'vue'
 
 const props = defineProps({
-  categories: { type: Array, default: () => [] },
+  categories:      { type: Array,  default: () => [] },
   initialCategory: { type: Number, default: null },
+  initialSearch:   { type: String, default: '' },
 })
 const emit = defineEmits(['filter'])
 
-const localSearch = ref('')
+const localSearch   = ref(props.initialSearch)
 const localCategory = ref(props.initialCategory)
 const localMinPrice = ref(null)
 const localMaxPrice = ref(null)

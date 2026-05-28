@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div style="background:#fff;min-height:100vh">
     <div class="max-w-2xl mx-auto px-6 py-24 flex flex-col items-center text-center">
 
@@ -84,7 +84,7 @@
           <RouterLink
             :to="{ name: 'my-orders' }"
             class="flex-1 py-3 text-xs font-bold uppercase tracking-widest text-center transition-opacity hover:opacity-85"
-            style="background:#0a0a0a;color:#fff"
+            style="background:#2a2420;color:#f7f3ee"
           >Мои заказы</RouterLink>
           <RouterLink
             to="/menu"
