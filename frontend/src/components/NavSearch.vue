@@ -78,10 +78,11 @@
               style="background:#f3ede7"
             >
               <img
-                v-if="item.image_url"
+                v-if="item.image_url && !brokenImages.has(item.id)"
                 :src="item.image_url"
                 :alt="item.name"
                 class="w-full h-full object-cover"
+                @error="brokenImages.add(item.id)"
               />
               <div v-else class="w-full h-full flex items-center justify-center">
                 <svg width="80" height="96" viewBox="0 0 80 96" fill="none" style="opacity:0.1;width:100%;height:100%">
@@ -127,7 +128,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, reactive, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { menuApi } from '@/api/menu'
 import { formatPrice } from '@/utils/format'
@@ -141,6 +142,7 @@ const results = ref([])
 const loading = ref(false)
 const isFocused = ref(false)
 const hasMore = ref(false)
+const brokenImages = reactive(new Set())
 
 const LIMIT = 6
 let debounceTimer = null
