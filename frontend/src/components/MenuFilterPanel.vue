@@ -90,7 +90,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 const props = defineProps({
   categories:      { type: Array,  default: () => [] },
@@ -101,6 +101,8 @@ const emit = defineEmits(['filter'])
 
 const localSearch   = ref(props.initialSearch)
 const localCategory = ref(props.initialCategory)
+
+watch(() => props.initialSearch, (val) => { localSearch.value = val })
 const localMinPrice = ref(null)
 const localMaxPrice = ref(null)
 

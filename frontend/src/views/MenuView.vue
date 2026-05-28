@@ -128,12 +128,14 @@ const toastMsg = ref('')
 let toastTimer = null
 
 const initialCategory = $route.query.category ? Number($route.query.category) : null
-const initialSearch   = $route.query.search   ? String($route.query.search)   : ''
+const initialSearch   = computed(() => $route.query.search ? String($route.query.search) : '')
 
 // Реагируем на изменение ?search= в URL (навигация из строки поиска)
 watch(() => $route.query.search, (newSearch) => {
   if (newSearch !== undefined) {
-    fetchItems({ search: newSearch || undefined })
+    currentFilters.value = { ...currentFilters.value, search: newSearch || undefined }
+    if (!currentFilters.value.search) delete currentFilters.value.search
+    fetchItems(currentFilters.value)
   }
 })
 
@@ -190,8 +192,10 @@ function handleAddSuccess(name) {
 
 onMounted(async () => {
   await loadCategories()
-  const catId = $route.query.category
-  if (catId) currentFilters.value = { category_id: Number(catId) }
+  const catId  = $route.query.category
+  const search = $route.query.search
+  if (catId)  currentFilters.value.category_id = Number(catId)
+  if (search) currentFilters.value.search      = String(search)
   fetchItems(currentFilters.value)
 })
 </script>
