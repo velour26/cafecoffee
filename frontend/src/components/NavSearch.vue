@@ -84,12 +84,10 @@
                 class="w-full h-full object-cover"
               />
               <div v-else class="w-full h-full flex items-center justify-center">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c1a882" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
-                  <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/>
-                  <line x1="6" y1="2" x2="6" y2="4"/>
-                  <line x1="10" y1="2" x2="10" y2="4"/>
-                  <line x1="14" y1="2" x2="14" y2="4"/>
+                <svg width="80" height="96" viewBox="0 0 80 96" fill="none" style="opacity:0.1;width:100%;height:100%">
+                  <path d="M10 32 L16 84 H64 L70 32 Z" fill="none" stroke="#000" stroke-width="2"/>
+                  <ellipse cx="40" cy="32" rx="30" ry="8" fill="none" stroke="#000" stroke-width="2"/>
+                  <path d="M64 47 Q80 47 80 57 Q80 67 64 67" stroke="#000" stroke-width="2" fill="none"/>
                 </svg>
               </div>
             </div>
