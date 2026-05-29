@@ -10,7 +10,9 @@ from fastapi.staticfiles import StaticFiles
 from app.api.v1.router import api_router
 from app.core.config import settings
 
-STATIC_DIR = Path(__file__).parent.parent / "static"
+import os
+_default_static = Path(__file__).parent.parent / "static"
+STATIC_DIR = Path(os.environ.get("STATIC_DIR", str(_default_static)))
 STATIC_DIR.mkdir(exist_ok=True)
 (STATIC_DIR / "images").mkdir(exist_ok=True)
 
