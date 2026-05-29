@@ -9,7 +9,7 @@
     <div class="relative overflow-hidden" style="height:200px;background:#f5f5f3">
       <img
         v-if="item.image_url && !imageError"
-        :src="item.image_url"
+        :src="getImageUrl(item.image_url)"
         :alt="item.name"
         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         style="filter:brightness(0.85)"
@@ -93,7 +93,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useCartStore } from '@/stores/cart'
-import { formatPrice } from '@/utils/format'
+import { formatPrice, getImageUrl } from '@/utils/format'
 
 const props = defineProps({
   item: { type: Object, required: true },

@@ -1,3 +1,11 @@
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+
+export function getImageUrl(url) {
+  if (!url) return null
+  if (url.startsWith('/static/')) return API_BASE + url
+  return url
+}
+
 export function formatPrice(price) {
   return new Intl.NumberFormat('ru-RU', {
     style: 'currency',

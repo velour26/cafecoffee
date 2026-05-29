@@ -79,7 +79,7 @@
             >
               <img
                 v-if="item.image_url && !brokenImages.has(item.id)"
-                :src="item.image_url"
+                :src="getImageUrl(item.image_url)"
                 :alt="item.name"
                 class="w-full h-full object-cover"
                 @error="brokenImages.add(item.id)"
@@ -131,7 +131,7 @@
 import { ref, reactive, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { menuApi } from '@/api/menu'
-import { formatPrice } from '@/utils/format'
+import { formatPrice, getImageUrl } from '@/utils/format'
 
 const router = useRouter()
 const rootRef  = ref(null)

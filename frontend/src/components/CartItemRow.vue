@@ -6,7 +6,7 @@
     <div class="shrink-0 overflow-hidden" style="width:72px;height:72px;background:#f5f5f3">
       <img
         v-if="item.menu_item?.image_url"
-        :src="item.menu_item.image_url"
+        :src="getImageUrl(item.menu_item.image_url)"
         :alt="item.menu_item?.name"
         class="w-full h-full object-cover"
         style="filter:brightness(0.9)"
@@ -67,7 +67,7 @@
 </template>
 
 <script setup>
-import { formatPrice } from '@/utils/format'
+import { formatPrice, getImageUrl } from '@/utils/format'
 defineProps({ item: { type: Object, required: true } })
 defineEmits(['update', 'remove'])
 </script>

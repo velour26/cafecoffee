@@ -59,7 +59,7 @@
           <div class="relative overflow-hidden" style="background:#f5f5f3">
             <img
               v-if="item.image_url && !imageError"
-              :src="item.image_url"
+              :src="getImageUrl(item.image_url)"
               :alt="item.name"
               class="w-full object-cover"
               style="height:520px;filter:brightness(0.9)"
@@ -306,7 +306,7 @@ import { menuApi } from '@/api/menu'
 import { reviewsApi } from '@/api/reviews'
 import { useAuthStore } from '@/stores/auth'
 import { useCartStore } from '@/stores/cart'
-import { formatPrice } from '@/utils/format'
+import { formatPrice, getImageUrl } from '@/utils/format'
 import ReviewCard from '@/components/ReviewCard.vue'
 
 const $route = useRoute()
