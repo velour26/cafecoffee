@@ -182,16 +182,16 @@ async def download_image(client: httpx.AsyncClient, url: str, filename: str) -> 
     """Download image to local static dir; return full URL or original on failure."""
     IMAGES_DIR.mkdir(parents=True, exist_ok=True)
     dest = IMAGES_DIR / filename
+    if not dest.exists():
+        try:
+            r = await client.get(url, follow_redirects=True, timeout=20)
+            if r.status_code == 200:
+                dest.write_bytes(r.content)
+                print(f"[seed] скачано: {filename}")
+        except Exception as exc:
+            print(f"[seed] не удалось скачать {filename}: {exc}")
     if dest.exists():
         return f"{BACKEND_URL}/static/images/{filename}"
-    try:
-        r = await client.get(url, follow_redirects=True, timeout=20)
-        if r.status_code == 200:
-            dest.write_bytes(r.content)
-            print(f"[seed] скачано: {filename}")
-            return f"{BACKEND_URL}/static/images/{filename}"
-    except Exception as exc:
-        print(f"[seed] не удалось скачать {filename}: {exc}")
     return url
 
 
@@ -260,13 +260,7 @@ async def seed() -> None:
                 local_url = await download_image(http_client, orig_url, img_filename)
                 if name in existing_items:
                     mi = existing_items[name]
-                    needs_update = (
-                        not mi.image_url
-                        or "unsplash.com" in mi.image_url
-                        or mi.image_url.startswith("/static/")
-                    )
-                    if needs_update:
-                        mi.image_url = local_url
+                    mi.image_url = local_url
                     continue
                 cat = cat_map[cat_name]
                 mi = MenuItem(
