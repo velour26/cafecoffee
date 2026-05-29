@@ -173,7 +173,7 @@ REVIEW_TEXTS = [
 ]
 
 
-BACKEND_URL = os.environ.get("BACKEND_URL", "http://localhost:8000")
+BACKEND_URL = os.environ.get("BACKEND_URL", "http://localhost:8000").rstrip("/")
 _default_images = Path(__file__).parent / "static" / "images"
 IMAGES_DIR = Path(os.environ.get("STATIC_IMAGES_DIR", str(_default_images)))
 

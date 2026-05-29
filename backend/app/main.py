@@ -11,8 +11,12 @@ from app.api.v1.router import api_router
 from app.core.config import settings
 
 import os
-_default_static = Path(__file__).parent.parent / "static"
-STATIC_DIR = Path(os.environ.get("STATIC_DIR", str(_default_static)))
+_images_env = os.environ.get("STATIC_IMAGES_DIR")
+if _images_env:
+    # STATIC_IMAGES_DIR=/data/images → serve /data as /static
+    STATIC_DIR = Path(_images_env).parent
+else:
+    STATIC_DIR = Path(__file__).parent.parent / "static"
 STATIC_DIR.mkdir(exist_ok=True)
 (STATIC_DIR / "images").mkdir(exist_ok=True)
 
